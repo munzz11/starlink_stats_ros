@@ -1,3 +1,7 @@
+src/spacex/
+.proto
+.protobuf
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
