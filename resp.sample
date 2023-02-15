@@ -1,0 +1,47 @@
+api_version: 6
+dish_get_status {
+  device_info {
+    id: "ut01000000-00000000-003f0f3a"
+    hardware_version: "hp1_proto0"
+    software_version: "191e4dfa-d63a-46b1-a73b-9fa907733864.uterm.release"
+    generation_number: 1674693297
+    country_code: "US"
+    utc_offset_s: -14399
+    bootcount: 11
+  }
+  device_state {
+    uptime_s: 14624
+  }
+  alerts {
+    roaming: true
+  }
+  gps_stats {
+    gps_valid: true
+    gps_sats: 14
+  }
+  downlink_throughput_bps: 66462.9375
+  uplink_throughput_bps: 58191.7734
+  pop_ping_latency_ms: 33.85
+  obstruction_stats {
+    fraction_obstructed: 0.054733064
+    valid_s: 14019
+    avg_prolonged_obstruction_duration_s: 1.55907762
+    avg_prolonged_obstruction_interval_s: 181.512604
+  }
+  boresight_azimuth_deg: -41.1291847
+  boresight_elevation_deg: 87.6193237
+  eth_speed_mbps: 1000
+  mobility_class: MOBILE
+  is_snr_above_noise_floor: true
+  ready_states {
+    cady: true
+    scp: true
+    l1l2: true
+    xphy: true
+    aap: true
+    rf: true
+  }
+  software_update_state: IDLE
+  has_actuators: HAS_ACTUATORS_NO
+  disablement_code: OKAY
+}
