@@ -1,4 +1,4 @@
-src/starlink_grpc/spacex/
+src/spacex/
 .proto
 .protobuf
 
