@@ -4,12 +4,13 @@ import sys
 import json
 import grpc
 import re
+from diagnostic_msgs.msg import DiagnosticArray, DiagnosticStatus, KeyValue
 
 def get_diagnostics(dish_ip):
     
     try:
-        from spacex.api.device import device_pb2
-        from spacex.api.device import device_pb2_grpc
+        from .spacex.api.device import device_pb2
+        from .spacex.api.device import device_pb2_grpc
     except ModuleNotFoundError:
         return({'Starlink': {'level': DiagnosticStatus.ERROR, 'ERROR': 'Generate rpc modules not found'}})
            
