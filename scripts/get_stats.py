@@ -31,7 +31,7 @@ except:
     file = open('resp.sample', 'r')
     response = file.read()
 
-
+print(response)
 # Some regex subs to manipulate the output from the dish into json format
 response = "{\n" + response.split("\n",1)[1] + "}" 
 response = re.sub("(\w+) {", r'"\1": {', response)
