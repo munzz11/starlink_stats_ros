@@ -24,7 +24,7 @@ def get_diagnostics(dish_ip):
     try:
         response = "{\n" + str(response).split("\n",1)[1] + "}"
         response = re.sub("(\w+) {", r'"\1": {', response)
-        response = re.sub('"?(-?\w+(?:\.?\w+|-?|\+?)+)"?', r'"\1"', response)
+        response = re.sub('"?(-?\w+(?:\.?\w+\+?)+)"?', r'"\1"', response)
         response = re.sub('(([^{])\n (?!\s[}]))', r'\2,\n', response)
         response = json.loads(response)
     except:
