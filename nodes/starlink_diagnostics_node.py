@@ -1,8 +1,19 @@
 #!/usr/bin/python3
 
 import rospy
+from collections.abc import MutableMapping
 from diagnostic_msgs.msg import DiagnosticArray, DiagnosticStatus, KeyValue
 from starlink_grpc.get_starlink_stats import get_diagnostics
+
+def flatten(d, parent_key='', sep='_'):
+    items = []
+    for k, v in d.items():
+        new_key = parent_key + sep + k if parent_key else k
+        if isinstance(v, MutableMapping):
+            items.extend(flatten(v, new_key, sep=sep).items())
+        else:
+            items.append((new_key, v))
+    return dict(items)
 
 def publish_diagnostic_message():
     # Initialize ROS node
@@ -22,12 +33,11 @@ def publish_diagnostic_message():
             # Create diagnostic status message and set its values
             diag_status = DiagnosticStatus()
             diag_status.name = 'Starlink'
-            print(value.get('device_info',{}).get('id'))
             diag_status.hardware_id = (value.get('device_info',{}).get('id'))
             diag_status.message = value.get('message', '')
             diag_status.level = value.get('level', DiagnosticStatus.OK)
             diag_status.values = []
-
+            value = flatten(value)
             # Create key-value messages for each item in the subdictionary
             for k, v in value.items():
                 if k != 'level' and k != 'message':
