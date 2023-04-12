@@ -21,7 +21,9 @@ def publish_diagnostic_message():
         for key, value in diagnostic_data.items():
             # Create diagnostic status message and set its values
             diag_status = DiagnosticStatus()
-            diag_status.name = key
+            diag_status.name = 'Starlink'
+            print(value.get('device_info',{}).get('id'))
+            diag_status.hardware_id = (value.get('device_info',{}).get('id'))
             diag_status.message = value.get('message', '')
             diag_status.level = value.get('level', DiagnosticStatus.OK)
             diag_status.values = []
