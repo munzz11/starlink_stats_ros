@@ -13,7 +13,7 @@ function recursive_for_loop {
         fi;  
     done;  
 };
-cd src/spacex/
+cd ../src/spacex/
 recursive_for_loop
 cd ..
 cd ..
